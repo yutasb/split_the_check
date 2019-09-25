@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app" v-cloak>
+      <h1>ワリカンをもっとラクに！</h1>
+      <form v-on:submit.prevent>
+        名前<input /> 内容<input v-model="newContent" />
+        <button v-on:click="addContent">送信</button>
+        金額<input v-model="newMoney" />
+        <button v-on:click="addMoney">送信</button>
+      </form>
+      <ul>
+        <div class="content">
+          <li v-for="content in content2">
+            <span>{{ content.item }}</span>
+          </li>
+        </div>
+        <div class="money">
+          <li v-for="money in money2">
+            <span>{{ money.item2 }}</span>
+          </li>
+        </div>
+      </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

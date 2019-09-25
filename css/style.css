@@ -1,0 +1,18 @@
+#app li {
+  list-style: none;
+}
+
+.content,
+.money {
+  display: block;
+  float: left;
+  margin-left: 150px;
+}
+
+.money {
+  margin-left: 200px;
+}
+
+[v-cloak] {
+  display: none;
+}
