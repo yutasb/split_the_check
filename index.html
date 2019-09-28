@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Document</title>
+    <title>ワリカンをもっとラクに！</title>
   </head>
   <body>
     <div id="app" v-cloak>
@@ -18,12 +18,12 @@
       <ul>
         <div class="content">
           <li v-for="content in content2">
-            <span>{{ content.item }}</span>
+            <span>{{ content.item | localNum }}</span>
           </li>
         </div>
         <div class="money">
           <li v-for="money in money2">
-            <span>{{ money.item2 }}</span>
+            <span>{{ money.item2 | localNum }}</span>
           </li>
         </div>
       </ul>

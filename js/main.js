@@ -1,3 +1,7 @@
+Vue.filter("localNum", function(value) {
+  return value.toLocaleString();
+});
+
 var app = new Vue({
   el: "#app",
   data: {
