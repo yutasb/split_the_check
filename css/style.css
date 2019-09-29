@@ -2,17 +2,31 @@
   list-style: none;
 }
 
+#app2 li {
+  list-style: none;
+}
+
 .content,
-.money {
+.money,
+.content2,
+.money2 {
   display: block;
   float: left;
   margin-left: 150px;
 }
 
-.money {
+.money,
+.money2 {
   margin-left: 200px;
 }
 
 [v-cloak] {
   display: none;
+}
+
+footer {
+  text-align: center;
+  opacity: 0.3;
+  position: absolute;
+  bottom: 0;
 }

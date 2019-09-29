@@ -8,14 +8,14 @@ var app = new Vue({
     newContent: "",
     content2: [],
     newMoney: "",
-    money2: []
+    money2: [],
+    sum: ""
   },
   methods: {
     addContent: function() {
       if (this.newContent === "") return;
       var content = {
-        item: this.newContent,
-        isDOne: false
+        item: this.newContent
       };
       this.content2.push(content);
       this.newContent = "";
@@ -23,11 +23,43 @@ var app = new Vue({
     addMoney: function() {
       if (this.newMoney === "") return;
       var money = {
-        item2: this.newMoney,
-        isDone: false
+        item2: this.newMoney
       };
       this.money2.push(money);
       this.newMoney = "";
+      this.sum;
+    }
+  }
+});
+
+var app2 = new Vue({
+  el: "#app2",
+  data: {
+    newContent2: "",
+    content3: [],
+    newMoney2: "",
+    money3: [],
+    sum: ""
+  },
+  methods: {
+    addContent2: function() {
+      if (this.newContent2 === "") return;
+      var content2 = {
+        item2: this.newContent2
+      };
+      this.content3.push(content2);
+      this.newContent2 = "";
+    },
+    addMoney2: function() {
+      if (this.newMoney2 === "") return;
+      var money2 = {
+        item3: this.newMoney2
+      };
+      this.money3.push(money2);
+      this.newMoney2 = "";
+    },
+    sumMoney: function() {
+      this.sum;
     }
   }
 });

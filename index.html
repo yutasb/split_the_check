@@ -25,9 +25,44 @@
           <li v-for="money in money2">
             <span>{{ money.item2 | localNum }}</span>
           </li>
+          <input v-model="sum" />
         </div>
       </ul>
+      <!--<div>
+        <button v-on:click="sumMoney">合計</button>
+        <input v-model="sum" />
+      </div>-->
     </div>
+
+    <!--
+    <div id="app2" v-cloak>
+      <form v-on:submit.prevent>
+        名前<input /> 内容<input v-model="newContent2" />
+        <button v-on:click="addContent2">送信</button>
+        金額<input v-model="newMoney2" />
+        <button v-on:click="addMoney2">送信</button>
+      </form>
+      <ul>
+        <div class="content2">
+          <li v-for="content2 in content3">
+            <span>{{ content2.item }}</span>
+          </li>
+        </div>
+        <div class="money2">
+          <li v-for="money2 in money3">
+            <span>{{ money2.item3 | localNum }}</span>
+          </li>
+        </div>
+      </ul>
+      <div>
+        <button v-on:click="sumMoney">合計</button>
+        <input v-model="sum" />
+      </div>
+    </div>
+-->
+    <footer>
+      &copy;2019yutasb
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/main.js"></script>
   </body>
