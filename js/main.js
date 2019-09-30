@@ -27,10 +27,19 @@ var app = new Vue({
       };
       this.money2.push(money);
       this.newMoney = "";
-      this.sum;
+      var total = this.money2.reduce(function(a, b) {
+        return a + b;
+      });
+      this.sum = total;
     }
   }
 });
+
+let iterable = [10, 20, 30];
+let total = iterable.reduce(function(a, b) {
+  return a + b;
+});
+console.log(total);
 
 var app2 = new Vue({
   el: "#app2",

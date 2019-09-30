@@ -12,7 +12,7 @@
       <form v-on:submit.prevent>
         名前<input /> 内容<input v-model="newContent" />
         <button v-on:click="addContent">送信</button>
-        金額<input v-model="newMoney" />
+        金額<input type="number" v-model.number="newMoney" />
         <button v-on:click="addMoney">送信</button>
       </form>
       <ul>
@@ -25,14 +25,16 @@
           <li v-for="money in money2">
             <span>{{ money.item2 | localNum }}</span>
           </li>
-          <input v-model="sum" />
         </div>
+        <input v-model="sum" type="number" />
       </ul>
       <!--<div>
         <button v-on:click="sumMoney">合計</button>
         <input v-model="sum" />
       </div>-->
     </div>
+
+    <p id="home"></p>
 
     <!--
     <div id="app2" v-cloak>
