@@ -26,11 +26,20 @@ var app = new Vue({
         item2: this.newMoney
       };
       this.money2.push(money);
+      if (this.money2 === "") {
+        this.sum = this.newMoney;
+      } else {
+        this.sum = parseInt(this.newMoney + this.sum);
+      }
       this.newMoney = "";
-      var total = this.money2.reduce(function(a, b) {
-        return a + b;
-      });
-      this.sum = total;
+
+      //   var total = this.money2.reduce(function(a, b) {
+      //     return a + b;
+      //   });
+      //   this.sum = total;
+      // },
+      // sumMoney: function() {
+      //   this.sum = this.newMoney;
     }
   }
 });
