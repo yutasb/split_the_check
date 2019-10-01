@@ -1,5 +1,5 @@
 #app li {
-  list-style: none;
+  list-style: none;　
 }
 
 #app2 li {
@@ -9,7 +9,8 @@
 .content,
 .money,
 .content2,
-.money2 {
+.money2,
+.sum {
   display: block;
   float: left;
   margin-left: 150px;
@@ -29,4 +30,8 @@ footer {
   opacity: 0.3;
   position: absolute;
   bottom: 0;
+}
+
+#app2{
+    margin-top:250px;
 }

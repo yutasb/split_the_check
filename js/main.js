@@ -32,23 +32,9 @@ var app = new Vue({
         this.sum = parseInt(this.newMoney + this.sum);
       }
       this.newMoney = "";
-
-      //   var total = this.money2.reduce(function(a, b) {
-      //     return a + b;
-      //   });
-      //   this.sum = total;
-      // },
-      // sumMoney: function() {
-      //   this.sum = this.newMoney;
     }
   }
 });
-
-let iterable = [10, 20, 30];
-let total = iterable.reduce(function(a, b) {
-  return a + b;
-});
-console.log(total);
 
 var app2 = new Vue({
   el: "#app2",
@@ -57,7 +43,8 @@ var app2 = new Vue({
     content3: [],
     newMoney2: "",
     money3: [],
-    sum: ""
+    sum2: "",
+    total: ""
   },
   methods: {
     addContent2: function() {
@@ -74,10 +61,27 @@ var app2 = new Vue({
         item3: this.newMoney2
       };
       this.money3.push(money2);
+      if (this.money3 === "") {
+        this.sum2 = this.newMoney2;
+      } else {
+        this.sum2 = parseInt(this.newMoney2 + this.sum2);
+      }
       this.newMoney2 = "";
     },
-    sumMoney: function() {
-      this.sum;
+    totalMoney: function() {
+      this.total = parseInt(this.sum + this.sum2);
     }
   }
 });
+
+// var app3 = new Vue({
+//   el: "#app3",
+//   data: {
+//     total: ""
+//   },
+//   methods: {
+//     totalMoney: function() {
+//       this.total = parseInt(this.sum + this.sum2);
+//     }
+//   }
+// });
