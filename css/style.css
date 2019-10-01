@@ -1,37 +1,73 @@
-#app li {
-  list-style: none;　
+body {
+  width: 1200px;
+  margin: 0 auto;
+}
+.body {
+  background-color: rgb(18, 235, 206);
+  text-align: center;
+  height: 650px;
+  padding: 30px;
+  font-size: 20px;
 }
 
-#app2 li {
+.title {
+  text-align: center;
+  font-size: 40px;
+  margin-top: 20px;
+  width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#app li {
   list-style: none;
 }
 
 .content,
 .money,
 .content2,
-.money2,
-.sum {
+.money2 {
   display: block;
   float: left;
-  margin-left: 150px;
+  margin-left: 350px;
 }
 
 .money,
 .money2 {
-  margin-left: 200px;
+  margin-left: 170px;
 }
 
 [v-cloak] {
   display: none;
 }
 
+.app2,
+.total {
+  margin-top: 250px;
+}
+
+input {
+  box-sizing: border-box;
+  width: 150px;
+  padding: 0.3em;
+  transition: 0.3s;
+  letter-spacing: 1px;
+  border: none;
+  border-bottom: 2px solid #1b2538;
+  background: transparent;
+  text-align: center;
+}
+.result {
+  margin-top: 30px;
+}
+
+.totalinput {
+  width: 600px;
+  font-size: 20px;
+  border: none;
+}
+
 footer {
   text-align: center;
   opacity: 0.3;
-  position: absolute;
-  bottom: 0;
-}
-
-#app2{
-    margin-top:250px;
 }

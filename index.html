@@ -7,19 +7,22 @@
     <title>ワリカンをもっとラクに！</title>
   </head>
   <body>
-    <div id="app" v-cloak>
-      <h1>ワリカンをもっとラクに！</h1>
+    <div id="app" v-cloak >
+      <h1 class='title'>ワリカンをもっとラクに！</h1>
       <!-- 1人目 -->
+      <div class='body'>
       <form v-on:submit.prevent>
-        名前<input /> 内容<input v-model="newContent" />
+        名前<input  v-focus v-model='name' type='text' /> 内容<input v-model="newContent" type='text' />
         <button v-on:click="addContent">送信</button>
         金額<input type="number" v-model.number="newMoney" />
         <button v-on:click="addMoney">送信</button>
+   　　　合計<input v-model.number="sum" type="number" class='sum'/>
+              
       </form>
       <ul>
         <div class="content">
           <li v-for="content in content2">
-            <span>{{ content.item | localNum }}</span>
+            <span>{{ content.item }}</span>
           </li>
         </div>
         <div class="money">
@@ -27,24 +30,20 @@
             <span>{{ money.item2 | localNum }}</span>
           </li>
         </div>
-        <div class="sum">
-          <input v-model.number="sum" type="number" />
-        </div>
+       
       </ul>
-    </div>
-
-    <!-- 2人目 -->
-    <div id="app2" v-cloak>
-      <form v-on:submit.prevent>
-        名前<input /> 内容<input v-model="newContent2" />
+   <!-- 2人目 -->
+   <div class='app2'>
+        名前<input v-model='name2' type='text'/> 内容<input v-model="newContent2" type='text' />
         <button v-on:click="addContent2">送信</button>
         金額<input v-model.number="newMoney2" type="number" />
         <button v-on:click="addMoney2">送信</button>
+        合計<input v-model.number="sum2" type="number"  class='sum2'/>
       </form>
       <ul>
         <div class="content2">
           <li v-for="content2 in content3">
-            <span>{{ content2.item | localNum }}</span>
+            <span>{{ content2.item2 }}</span>
           </li>
         </div>
         <div class="money2">
@@ -52,16 +51,22 @@
             <span>{{ money2.item3 | localNum }}</span>
           </li>
         </div>
-        <input v-model.number="sum2" type="number" />
+        
       </ul>
-      <button v-on:click="totalMoney">合計額</button>
-      <input v-model.number="total" type="number" />
     </div>
-    <!-- 
-    <div id="app3" v-cloak>
-      <button v-on:click="totalMoney">合計額</button>
-      <input v-model.number="total" type="number" />
-    </div> -->
+      <!-- 合計 -->
+      <div class='total'>
+      <button v-on:click="totalMoney">2人合計</button>
+      <input v-model.number="total" type="number"  />
+    </div>
+    <!-- 精算 -->
+    <div class='result'>
+        <button v-on:click='result'>精算</button>
+        <input v-model='result2' type='text' class='totalinput'>
+    </div>
+
+
+    </div>
 
     <footer>
       &copy;2019yutasb

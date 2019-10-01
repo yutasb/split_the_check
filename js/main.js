@@ -2,6 +2,13 @@ Vue.filter("localNum", function(value) {
   return value.toLocaleString();
 });
 
+// ページ読み込み時、フォーカスをつける。→　HTMLに<input v-focus>をつけることで対応。
+Vue.directive("focus", {
+  inserted: function(el) {
+    el.focus();
+  }
+});
+
 var app = new Vue({
   el: "#app",
   data: {
@@ -9,7 +16,16 @@ var app = new Vue({
     content2: [],
     newMoney: "",
     money2: [],
-    sum: ""
+    sum: "",
+    newContent2: "",
+    content3: [],
+    newMoney2: "",
+    money3: [],
+    sum2: "",
+    total: "",
+    result2: "",
+    name1: "",
+    name2: ""
   },
   methods: {
     addContent: function() {
@@ -32,21 +48,7 @@ var app = new Vue({
         this.sum = parseInt(this.newMoney + this.sum);
       }
       this.newMoney = "";
-    }
-  }
-});
-
-var app2 = new Vue({
-  el: "#app2",
-  data: {
-    newContent2: "",
-    content3: [],
-    newMoney2: "",
-    money3: [],
-    sum2: "",
-    total: ""
-  },
-  methods: {
+    },
     addContent2: function() {
       if (this.newContent2 === "") return;
       var content2 = {
@@ -70,18 +72,20 @@ var app2 = new Vue({
     },
     totalMoney: function() {
       this.total = parseInt(this.sum + this.sum2);
+    },
+    result: function() {
+      var splitTotal = this.total / 2;
+      var name1Big = this.sum - splitTotal;
+      var name2Big = this.sum2 - splitTotal;
+      if (this.sum > this.sum2) {
+        this.result2 =
+          this.name2 + "が" + this.name + "に" + name1Big + "円払う";
+      } else if (this.sum === this.sum2) {
+        this.result2 = "精算はありません";
+      } else {
+        this.result2 =
+          this.name + "が" + this.name2 + "に" + name2Big + "円払う";
+      }
     }
   }
 });
-
-// var app3 = new Vue({
-//   el: "#app3",
-//   data: {
-//     total: ""
-//   },
-//   methods: {
-//     totalMoney: function() {
-//       this.total = parseInt(this.sum + this.sum2);
-//     }
-//   }
-// });
