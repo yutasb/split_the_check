@@ -49,6 +49,15 @@ var app = new Vue({
       }
       this.newMoney = "";
     },
+    deleteItem: function(index) {
+      this.money2.splice(index, 1);
+      this.content2.splice(index, 1);
+      if (this.sum === this.money2[0]) {
+        this.sum = "";
+      } else {
+        console.log(2);
+      }
+    },
     addContent2: function() {
       if (this.newContent2 === "") return;
       var content2 = {

@@ -7,14 +7,14 @@
     <title>ワリカンをもっとラクに！</title>
   </head>
   <body>
-    <div id="app" v-cloak >
+    <div id="app" v-cloak class='container'>
       <h1 class='title'>ワリカンをもっとラクに！</h1>
       <!-- 1人目 -->
       <div class='body'>
       <form v-on:submit.prevent>
         名前<input  v-focus v-model='name' type='text' /> 内容<input v-model="newContent" type='text' />
         <button v-on:click="addContent">送信</button>
-        金額<input type="number" v-model.number="newMoney" />
+        金額<input type="number" v-model.number="newMoney" class='money1'/>
         <button v-on:click="addMoney">送信</button>
    　　　合計<input v-model.number="sum" type="number" class='sum'/>
               
@@ -26,8 +26,9 @@
           </li>
         </div>
         <div class="money">
-          <li v-for="money in money2">
+          <li v-for="(money,index) in money2">
             <span>{{ money.item2 | localNum }}</span>
+            <button v-on:click='deleteItem(index)'>Delete</button>
           </li>
         </div>
        

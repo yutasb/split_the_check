@@ -1,5 +1,5 @@
-body {
-  width: 1200px;
+.container {
+  max-width: 1200px;
   margin: 0 auto;
 }
 .body {
@@ -97,5 +97,12 @@ footer {
 
   footer {
     text-align: left;
+  }
+
+  .content,
+  .money,
+  .content2,
+  .money2 {
+    clear: left;
   }
 }
