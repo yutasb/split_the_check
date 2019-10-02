@@ -71,3 +71,31 @@ footer {
   text-align: center;
   opacity: 0.3;
 }
+
+@media screen and (max-width: 600px) {
+  body {
+    width: 650px;
+  }
+
+  .title {
+    font-size: 15px;
+    text-align: center;
+  }
+  .body {
+    text-align: left;
+    font-size: 10px;
+  }
+
+  .total,
+  .result {
+    text-align: left;
+  }
+
+  .content li {
+    float: none;
+  }
+
+  footer {
+    text-align: left;
+  }
+}

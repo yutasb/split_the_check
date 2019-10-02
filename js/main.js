@@ -24,7 +24,7 @@ var app = new Vue({
     sum2: "",
     total: "",
     result2: "",
-    name1: "",
+    name: "",
     name2: ""
   },
   methods: {
@@ -75,11 +75,11 @@ var app = new Vue({
     },
     result: function() {
       var splitTotal = this.total / 2;
-      var name1Big = this.sum - splitTotal;
+      var nameBig = this.sum - splitTotal;
       var name2Big = this.sum2 - splitTotal;
       if (this.sum > this.sum2) {
         this.result2 =
-          this.name2 + "が" + this.name + "に" + name1Big + "円払う";
+          this.name2 + "が" + this.name + "に" + nameBig + "円払う";
       } else if (this.sum === this.sum2) {
         this.result2 = "精算はありません";
       } else {
