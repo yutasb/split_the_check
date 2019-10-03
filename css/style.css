@@ -106,3 +106,13 @@ footer {
     clear: left;
   }
 }
+
+.transparent {
+  opacity: 0.3;
+  font-size: 13px;
+}
+
+button {
+  border-radius: 7px;
+  box-shadow: 2px 2px #555;
+}

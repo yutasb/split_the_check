@@ -12,9 +12,10 @@
       <!-- 1人目 -->
       <div class='body'>
       <form v-on:submit.prevent>
-        名前<input  v-focus v-model='name' type='text' /> 内容<input v-model="newContent" type='text' />
+       <span class='transparent'> 名前</span><input  v-focus v-model='name' type='text' />
+        <span class='transparent'>内容</span><input v-model="newContent" type='text' />
         <button v-on:click="addContent">送信</button>
-        金額<input type="number" v-model.number="newMoney" class='money1'/>
+        <span class='transparent'>金額</span><input type="number" v-model.number="newMoney" class='money1'/>
         <button v-on:click="addMoney">送信</button>
    　　　合計<input v-model.number="sum" type="number" class='sum'/>
               
@@ -35,9 +36,9 @@
       </ul>
    <!-- 2人目 -->
    <div class='app2'>
-        名前<input v-model='name2' type='text'/> 内容<input v-model="newContent2" type='text' />
+        <span class='transparent'>名前</span><input v-model='name2' type='text'/> <span class='transparent'>内容</span><input v-model="newContent2" type='text' />
         <button v-on:click="addContent2">送信</button>
-        金額<input v-model.number="newMoney2" type="number" />
+        <span class='transparent'>金額</span><input v-model.number="newMoney2" type="number" />
         <button v-on:click="addMoney2">送信</button>
         合計<input v-model.number="sum2" type="number"  class='sum2'/>
       </form>
