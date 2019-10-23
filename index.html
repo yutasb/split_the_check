@@ -11,13 +11,14 @@
       <h1 class='title'>ワリカンをもっとラクに！</h1>
       <!-- 1人目 -->
       <div class='body'>
+        <div class='one'>
       <form v-on:submit.prevent>
        <span class='transparent'> 名前</span><input  v-focus v-model='name' type='text' />
         <span class='transparent'>内容</span><input v-model="newContent" type='text' />
         <button v-on:click="addContent">送信</button>
-        <span class='transparent'>金額</span><input type="number" v-model.number="newMoney" class='money1'/>
+        <span class='transparent'>金額</span><input type="number" v-model.number="newMoney" class='money1'/>円
         <button v-on:click="addMoney">送信</button>
-   　　　合計<input v-model.number="sum" type="number" class='sum'/>
+   　　　合計<input v-model.number="sum" type="number" class='sum'/>円
               
       </form>
       <ul>
@@ -34,13 +35,14 @@
         </div>
        
       </ul>
+    </div>
    <!-- 2人目 -->
    <div class='app2'>
         <span class='transparent'>名前</span><input v-model='name2' type='text'/> <span class='transparent'>内容</span><input v-model="newContent2" type='text' />
         <button v-on:click="addContent2">送信</button>
-        <span class='transparent'>金額</span><input v-model.number="newMoney2" type="number" />
+        <span class='transparent'>金額</span><input v-model.number="newMoney2" type="number" />円
         <button v-on:click="addMoney2">送信</button>
-        合計<input v-model.number="sum2" type="number"  class='sum2'/>
+        合計<input v-model.number="sum2" type="number"  class='sum2'/>円
       </form>
       <ul>
         <div class="content2">
@@ -55,20 +57,21 @@
         </div>
         
       </ul>
-    </div>
+    
       <!-- 合計 -->
+      <div class='final'>
       <div class='total'>
       <button v-on:click="totalMoney">2人合計</button>
-      <input v-model.number="total" type="number"  />
+      <input v-model.number="total" type="number"  />円
     </div>
     <!-- 精算 -->
     <div class='result'>
         <button v-on:click='result'>精算</button>
         <input v-model='result2' type='text' class='totalinput'>
     </div>
-
-
-    </div>
+  </div>
+  </div>
+  </div>
 </div>
     <footer>
       &copy;2019yutasb

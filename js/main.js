@@ -52,9 +52,10 @@ var app = new Vue({
     deleteItem: function(index) {
       this.money2.splice(index, 1);
       this.content2.splice(index, 1);
-      if (this.sum === this.money2[0]) {
+      if (this.money2[money] === this.sum) {
         this.sum = "";
       } else {
+        // this.sum = parseInt(this.sum - this.money2);
         console.log(2);
       }
     },
