@@ -27,6 +27,22 @@ var app = new Vue({
     name: "",
     name2: ""
   },
+  mounted() {
+    if (localStorage.name) {
+      this.name = localStorage.name;
+    }
+    if (localStorage.name2) {
+      this.name2 = localStorage.name2;
+    }
+  },
+  watch: {
+    name(newName) {
+      localStorage.name = newName;
+    },
+    name2(newName2) {
+      localStorage.name2 = newName2;
+    }
+  },
   methods: {
     addContent: function() {
       if (this.newContent === "") return;
@@ -50,14 +66,9 @@ var app = new Vue({
       this.newMoney = "";
     },
     deleteItem: function(index) {
+      this.sum = parseInt(this.sum - this.money2);
       this.money2.splice(index, 1);
       this.content2.splice(index, 1);
-      if (this.money2[money] === this.sum) {
-        this.sum = "";
-      } else {
-        // this.sum = parseInt(this.sum - this.money2);
-        console.log(2);
-      }
     },
     addContent2: function() {
       if (this.newContent2 === "") return;

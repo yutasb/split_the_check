@@ -13,7 +13,7 @@
       <div class='body'>
         <div class='one'>
       <form v-on:submit.prevent>
-       <span class='transparent'> 名前</span><input  v-focus v-model='name' type='text' />
+       <span class='transparent'> 名前</span><input  v-model='name' type='text' />
         <span class='transparent'>内容</span><input v-model="newContent" type='text' />
         <button v-on:click="addContent">送信</button>
         <span class='transparent'>金額</span><input type="number" v-model.number="newMoney" class='money1'/>円
@@ -38,7 +38,7 @@
     </div>
    <!-- 2人目 -->
    <div class='app2'>
-        <span class='transparent'>名前</span><input v-model='name2' type='text'/> <span class='transparent'>内容</span><input v-model="newContent2" type='text' />
+        <span class='transparent'>名前</span><input  v-focus v-model='name2' type='text'/> <span class='transparent'>内容</span><input v-model="newContent2" type='text' />
         <button v-on:click="addContent2">送信</button>
         <span class='transparent'>金額</span><input v-model.number="newMoney2" type="number" />円
         <button v-on:click="addMoney2">送信</button>
