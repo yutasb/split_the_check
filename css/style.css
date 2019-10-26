@@ -72,10 +72,14 @@
   display: none;
 }
 
-/* .app2,
-.total {
-  margin-top: 250px;
-} */
+.content2Money {
+  float: left;
+  margin-right: 120px;
+}
+
+.inbox {
+  float: left;
+}
 
 .app2 {
   display: block;
@@ -113,10 +117,6 @@ footer {
   opacity: 0.3;
 }
 
-/* .inbox {
-  margin: 20px;
-} */
-
 .transparent {
   opacity: 0.3;
   font-size: 13px;
@@ -131,16 +131,41 @@ button:hover {
   opacity: 0.5;
 }
 
-/* レスポンシブデザイン */
-@media screen and (max-width: 600px) {
+/* レスポンシブ */
+@media screen and (max-width: 800px) {
   h1 {
     max-width: 500px;
   }
   .container {
     max-width: 500px;
+    margin: 0 auto;
     float: none;
   }
   .name {
     margin-left: 1px;
+  }
+
+  .name2 {
+    margin-left: 210px;
+  }
+
+  .inbox {
+    text-align: right;
+    float: none;
+  }
+
+  .bigsum {
+    text-align: center;
+    margin-top: 150px;
+  }
+
+  .app2 {
+    margin-top: 80px;
+  }
+
+  .final {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 80px;
   }
 }
