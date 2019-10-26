@@ -3,7 +3,6 @@
   margin: 0 auto;
 }
 .body {
-  background-color: rgb(18, 235, 206);
   height: 600px;
   padding: 30px;
   font-size: 13px;
@@ -16,11 +15,39 @@
   width: 800px;
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 5px;
 }
 
+.name {
+  margin-left: 680px;
+  margin-bottom: 20px;
+  background-color: rgb(18, 235, 206);
+  width: 100px;
+}
 .one {
   float: right;
   margin-right: 30px;
+  height: 500px;
+  width: 630px;
+  background-color: rgb(18, 235, 206);
+}
+
+.name2 {
+  margin-left: 10px;
+  margin-bottom: 20px;
+  margin-top: -61px;
+  background-color: rgb(18, 235, 206);
+  width: 100px;
+}
+
+.two {
+  height: 500px;
+  width: 630px;
+  background-color: rgb(18, 235, 206);
+}
+
+.smallsum {
+  margin-left: 70px;
 }
 
 #app li {
@@ -33,7 +60,7 @@
 .money2 {
   display: block;
   float: left;
-  margin-left: 150px;
+  margin-left: 30px;
 }
 
 .money,
@@ -71,7 +98,7 @@ input {
 }
 
 .final {
-  margin-top: 500px;
+  margin-top: 20px;
 }
 
 .totalinput {
@@ -81,45 +108,14 @@ input {
 }
 
 footer {
+  margin-top: 40px;
   text-align: center;
   opacity: 0.3;
 }
 
-/* レスポンシブデザイン */
-@media screen and (max-width: 600px) {
-  body {
-    width: 650px;
-  }
-
-  .title {
-    font-size: 15px;
-    text-align: center;
-  }
-  .body {
-    text-align: left;
-    font-size: 10px;
-  }
-
-  .total,
-  .result {
-    text-align: left;
-  }
-
-  .content li {
-    float: none;
-  }
-
-  footer {
-    text-align: left;
-  }
-
-  .content,
-  .money,
-  .content2,
-  .money2 {
-    clear: left;
-  }
-}
+/* .inbox {
+  margin: 20px;
+} */
 
 .transparent {
   opacity: 0.3;
@@ -129,4 +125,22 @@ footer {
 button {
   border-radius: 7px;
   box-shadow: 2px 2px #555;
+}
+
+button:hover {
+  opacity: 0.5;
+}
+
+/* レスポンシブデザイン */
+@media screen and (max-width: 600px) {
+  h1 {
+    max-width: 500px;
+  }
+  .container {
+    max-width: 500px;
+    float: none;
+  }
+  .name {
+    margin-left: 1px;
+  }
 }

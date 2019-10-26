@@ -2,23 +2,27 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
     <link rel="stylesheet" href="css/style.css" />
     <title>ワリカンをもっとラクに！</title>
   </head>
   <body>
-    <div id="app" v-cloak class='container'>
+    <div id="app" v-cloak class='container' class='container'>
       <h1 class='title'>ワリカンをもっとラクに！</h1>
       <!-- 1人目 -->
       <div class='body'>
-        <div class='one'>
-      <form v-on:submit.prevent>
+       <div class='name'>
+      <!-- <form v-on:submit.prevent> -->
        <span class='transparent'> 名前</span><input  v-model='name' type='text' />
+      </div>
+       <div class='one'>
+         <div class='inbox'>
         <span class='transparent'>内容</span><input v-model="newContent" type='text' />
         <button v-on:click="addContent">送信</button>
         <span class='transparent'>金額</span><input type="number" v-model.number="newMoney" class='money1'/>円
         <button v-on:click="addMoney">送信</button>
-   　　　合計<input v-model.number="sum" type="number" class='sum'/>円
+   　　　<span class='smallsum'>合計</span><input v-model.number="sum" type="number" class='sum'/>円
+  </div>
               
       </form>
       <ul>
@@ -38,12 +42,19 @@
     </div>
    <!-- 2人目 -->
    <div class='app2'>
-        <span class='transparent'>名前</span><input  v-focus v-model='name2' type='text'/> <span class='transparent'>内容</span><input v-model="newContent2" type='text' />
+      <div class='name2'>
+        <span class='transparent'>名前</span><input  v-focus v-model='name2' type='text'/> 
+      </div>
+        <div class='two'>
+          <div class='inbox'>
+        <span class='transparent'>内容</span><input v-model="newContent2" type='text' />
         <button v-on:click="addContent2">送信</button>
         <span class='transparent'>金額</span><input v-model.number="newMoney2" type="number" />円
         <button v-on:click="addMoney2">送信</button>
-        合計<input v-model.number="sum2" type="number"  class='sum2'/>円
+        <span class='smallsum'>合計</span><input v-model.number="sum2" type="number"  class='sum2'/>円
+      </div>
       </form>
+    
       <ul>
         <div class="content2">
           <li v-for="content2 in content3">
@@ -57,6 +68,7 @@
         </div>
         
       </ul>
+    </div>
     
       <!-- 合計 -->
       <div class='final'>
