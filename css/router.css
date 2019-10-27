@@ -1,0 +1,171 @@
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.body {
+  height: 600px;
+  padding: 30px;
+  font-size: 13px;
+}
+
+.title {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 20px;
+  width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 5px;
+}
+
+.name {
+  margin-left: 680px;
+  margin-bottom: 20px;
+  background-color: rgb(18, 235, 206);
+  width: 100px;
+}
+.one {
+  float: right;
+  margin-right: 30px;
+  height: 500px;
+  width: 630px;
+  background-color: rgb(18, 235, 206);
+}
+
+.name2 {
+  margin-left: 10px;
+  margin-bottom: 20px;
+  margin-top: -61px;
+  background-color: rgb(18, 235, 206);
+  width: 100px;
+}
+
+.two {
+  height: 500px;
+  width: 630px;
+  background-color: rgb(18, 235, 206);
+}
+
+.smallsum {
+  margin-left: 70px;
+}
+
+#app li {
+  list-style: none;
+}
+
+.content,
+.money,
+.content2,
+.money2 {
+  display: block;
+  float: left;
+  margin-left: 30px;
+}
+
+.money,
+.money2 {
+  margin-left: 160px;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+.content2Money {
+  float: left;
+  margin-right: 120px;
+}
+
+.inbox {
+  float: left;
+}
+
+.app2 {
+  display: block;
+  float: right;
+}
+
+input {
+  box-sizing: border-box;
+  width: 100px;
+  padding: 0.3em;
+  transition: 0.3s;
+  letter-spacing: 1px;
+  border: none;
+  border-bottom: 2px solid #1b2538;
+  background: transparent;
+  text-align: center;
+}
+.result {
+  margin-top: 30px;
+}
+
+.final {
+  margin-top: 20px;
+}
+
+.totalinput {
+  width: 600px;
+  font-size: 20px;
+  border: none;
+}
+
+footer {
+  margin-bottom: 40px;
+  text-align: center;
+  opacity: 0.3;
+}
+
+.transparent {
+  opacity: 0.3;
+  font-size: 13px;
+}
+
+button {
+  border-radius: 7px;
+  box-shadow: 2px 2px #555;
+}
+
+button:hover {
+  opacity: 0.5;
+}
+
+/* レスポンシブ */
+@media screen and (max-width: 800px) {
+  h1 {
+    max-width: 500px;
+  }
+  .container {
+    max-width: 500px;
+    margin: 0 auto;
+    float: none;
+  }
+  .name {
+    margin-left: 1px;
+  }
+
+  .name2 {
+    margin-left: 210px;
+  }
+
+  .inbox {
+    text-align: right;
+    float: none;
+  }
+
+  .bigsum {
+    text-align: center;
+    margin-top: 150px;
+  }
+
+  .app2 {
+    margin-top: 80px;
+  }
+
+  .final {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 80px;
+  }
+}

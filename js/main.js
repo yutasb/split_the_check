@@ -16,7 +16,7 @@ var app = new Vue({
     content2: [],
     newMoney: "",
     money2: [],
-    sum: "",
+    sum: 0,
     newContent2: "",
     content3: [],
     newMoney2: "",
@@ -41,6 +41,10 @@ var app = new Vue({
     },
     name2(newName2) {
       localStorage.name2 = newName2;
+    },
+    money2: {
+      handler: function() {},
+      deep: true
     }
   },
   methods: {
@@ -66,7 +70,7 @@ var app = new Vue({
       this.newMoney = "";
     },
     deleteItem: function(index) {
-      this.sum = parseInt(this.sum - this.money2);
+      this.sum = parseInt(this.sum - this.money2[index]);
       this.money2.splice(index, 1);
       this.content2.splice(index, 1);
     },
