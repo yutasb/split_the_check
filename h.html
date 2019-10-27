@@ -1,0 +1,71 @@
+<div id="app">
+  <h2>Cats</h2>
+  <div v-for="(cat, key) in cats">
+    <p>
+      <span class="cat">@{{ cat }}</span>
+      <button @click="removeCat(key)">Remove</button>
+    </p>
+  </div>
+
+  <p>
+    <input v-model="newCat" />
+    <button @click="addCat">Add Cat</button>
+  </p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/heyui"></script>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/heyui/themes/index.css"
+/>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      cats: [],
+      newCat: null
+    },
+    mounted() {
+      //json がぶっ壊れている可能性があるので、その場合は local storage を削除
+      if (localStorage.getItem("cats")) {
+        try {
+          this.cats = JSON.parse(localStorage.getItem("cats"));
+        } catch (e) {
+          localStorage.removeItem("cats");
+        }
+      }
+    },
+    methods: {
+      addCat() {
+        // 入力内容が空だったら何もしない
+        if (!this.newCat) {
+          return;
+        }
+
+        //猫を追加
+        this.cats.push(this.newCat);
+
+        //テキストフィールドを空に
+        this.newCat = "";
+
+        //猫を保存
+        this.saveCats();
+      },
+      removeCat(key) {
+        //指定されたキー猫を削除して保存しなおす
+        this.cats.splice(key, 1);
+        this.saveCats();
+      },
+      saveCats() {
+        //this.cats の値を保存
+        const parsed = JSON.stringify(this.cats);
+        localStorage.setItem("cats", parsed);
+      }
+    }
+  });
+</script>

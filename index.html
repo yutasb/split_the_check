@@ -1,7 +1,7 @@
 <!--
 レスポンシブ
 削除時、合計額減産
-リストを一時的に保存(watch？) 　　-->
+　　-->
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -12,11 +12,11 @@
       content="width=device-width,initial-scale=1.0,minimum-scale=1.0"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <title>ワリカンをもっとラクに！</title>
+    <title>Let's split the cost</title>
   </head>
   <body>
     <div id="app" v-cloak class="container" class="container">
-      <h1 class="title">ワリカンをもっとラクに！</h1>
+      <h1 class="title">Let's split the cost !</h1>
       <!-- 1人目 -->
       <div class="body">
         <div class="name">
@@ -79,8 +79,9 @@
                   </li>
                 </div>
                 <div class="money2">
-                  <li v-for="money2 in money3">
+                  <li v-for="(money2,index) in money3">
                     <span>{{ money2.item3 | localNum }}</span>
+                    <button v-on:click="deleteItem2(index)">Delete</button>
                   </li>
                 </div>
               </ul>
