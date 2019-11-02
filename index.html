@@ -1,6 +1,7 @@
 <!--
 レスポンシブ
 削除時、合計額減産
+リロード後、計算式として機能しない
 　　-->
 
 <!DOCTYPE html>
@@ -12,11 +13,14 @@
       content="width=device-width,initial-scale=1.0,minimum-scale=1.0"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Let's split the cost</title>
+    <title>Let's split the Check</title>
   </head>
   <body>
     <div id="app" v-cloak class="container" class="container">
-      <h1 class="title">Let's split the cost !</h1>
+      <h1 class="title">Let's split the Check!</h1>
+      <div class="toHome">
+        <button v-on:click="toHome">Homeへ</button>
+      </div>
       <!-- 1人目 -->
       <div class="body">
         <div class="name">
@@ -33,8 +37,9 @@
             <button v-on:click="addMoney">送信</button>
           </div>
           <div class="bigsum">
-            <span class="smallsum">合計</span
-            ><input v-model.number="sum" type="number" class="sum" />円
+            <span class="smallsum">合計</span>
+            <!-- <input v-model.number="sum" type="number" class="sum" />円 -->
+            {{ sum }}円
           </div>
 
           <ul>
@@ -67,8 +72,9 @@
               <button v-on:click="addMoney2">送信</button>
             </div>
             <div class="bigsum">
-              <span class="smallsum">合計</span
-              ><input v-model.number="sum2" type="number" class="sum2" />円
+              <span class="smallsum">合計</span>
+              <!-- <input v-model.number="sum2" type="number" class="sum2" />円 -->
+              {{ sum2 }}円
             </div>
 
             <div class="content2Money">

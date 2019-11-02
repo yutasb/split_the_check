@@ -18,6 +18,17 @@
   margin-bottom: 5px;
 }
 
+.toHome {
+  float: right;
+}
+
+.toHome button {
+  border: none;
+  box-shadow: none;
+  border-bottom: solid 2px green;
+  font-size: 15px;
+}
+
 .name {
   margin-left: 680px;
   margin-bottom: 20px;

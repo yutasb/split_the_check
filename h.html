@@ -13,7 +13,139 @@
   </p>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+<!-- computedの考え方 -->
+<div id="test">
+  苗字<input v-model="lastName" /><br />
+  名前<input v-model="firstName" />
+  <p>Full Name {{ fullName }}</p>
+</div>
+
+<!-- 1人目 -->
+  <div id="one">
+内容<input v-model="newContent" type="text" />
+    <button v-on:click="addContent">送信</button>
+金額<input type="number" v-model.number="newMoney" />円
+    <button v-on:click="addMoney">送信</button>
+合計 {{ sum }}円
+    </div>
+    <ul>
+      <div class="content">
+        <li v-for="content in content2">
+          <span>{{ content.item }}</span>
+        </li>
+      </div>
+      <div class="money">
+        <li v-for="(money,index) in money2">
+          <span>{{ money.item2 | localNum }}</span>
+          <button v-on:click="deleteItem(index)">Delete</button>
+        </li>
+      </div>
+    </ul>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+  <script>
+   
+
+    var one = new Vue({
+      el:'#one',
+      data:{
+        newContent:"",
+        newMoney:"",
+        content2:[],
+        money2:[],
+      },
+      methods:{
+        addContent: function() {
+      if (this.newContent === "") return;
+      var content = {
+        item: this.newContent
+      };
+      this.content2.push(content);
+      this.newContent = "";
+    },
+    addMoney: function() {
+      if (this.newMoney === "") return;
+      var money = {
+        item2: this.newMoney
+      };
+      this.money2.push(money);
+      this.newMoney = "";
+     },
+      },
+      deleteItem: function(index) {
+      this.money2.splice(index, 1);
+      this.content2.splice(index, 1);
+      this.saveContent2();
+      this.saveMoney2();
+    },
+    computed:{
+      sum:function(){
+        return this.money2
+      }
+    }
+    })
+
+    var vm = new Vue({
+      el: "#test",
+      data: {
+        lastName: "",
+        firstName: ""
+      },
+      computed: {
+        fullName: function() {
+          return this.lastName + " " + this.firstName;
+        }
+      }
+    });
+
+    const app = new Vue({
+      el: "#app",
+      data: {
+        cats: [],
+        newCat: null
+      },
+      mounted() {
+        //json がぶっ壊れている可能性があるので、その場合は local storage を削除
+        if (localStorage.getItem("cats")) {
+          try {
+            this.cats = JSON.parse(localStorage.getItem("cats"));
+          } catch (e) {
+            localStorage.removeItem("cats");
+          }
+        }
+      },
+      methods: {
+        addCat() {
+          // 入力内容が空だったら何もしない
+          if (!this.newCat) {
+            return;
+          }
+
+          //猫を追加
+          this.cats.push(this.newCat);
+
+          //テキストフィールドを空に
+          this.newCat = "";
+
+          //猫を保存
+          this.saveCats();
+        },
+        removeCat(key) {
+          //指定されたキー猫を削除して保存しなおす
+          this.cats.splice(key, 1);
+          this.saveCats();
+        },
+        saveCats() {
+          //this.cats の値を保存
+          const parsed = JSON.stringify(this.cats);
+          localStorage.setItem("cats", parsed);
+        }
+      }
+    });
+  </script>
+
+
 <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 
@@ -23,49 +155,4 @@
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/heyui/themes/index.css"
 />
-<script>
-  const app = new Vue({
-    el: "#app",
-    data: {
-      cats: [],
-      newCat: null
-    },
-    mounted() {
-      //json がぶっ壊れている可能性があるので、その場合は local storage を削除
-      if (localStorage.getItem("cats")) {
-        try {
-          this.cats = JSON.parse(localStorage.getItem("cats"));
-        } catch (e) {
-          localStorage.removeItem("cats");
-        }
-      }
-    },
-    methods: {
-      addCat() {
-        // 入力内容が空だったら何もしない
-        if (!this.newCat) {
-          return;
-        }
-
-        //猫を追加
-        this.cats.push(this.newCat);
-
-        //テキストフィールドを空に
-        this.newCat = "";
-
-        //猫を保存
-        this.saveCats();
-      },
-      removeCat(key) {
-        //指定されたキー猫を削除して保存しなおす
-        this.cats.splice(key, 1);
-        this.saveCats();
-      },
-      saveCats() {
-        //this.cats の値を保存
-        const parsed = JSON.stringify(this.cats);
-        localStorage.setItem("cats", parsed);
-      }
-    }
-  });
-</script>
+</div>

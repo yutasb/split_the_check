@@ -9,6 +9,9 @@ Vue.directive("focus", {
   }
 });
 
+//変数に格納しておくことで、session/localの切り替え容易になる
+var storage = localStorage;
+
 var app = new Vue({
   el: "#app",
   data: {
@@ -16,83 +19,84 @@ var app = new Vue({
     content2: [],
     newMoney: "",
     money2: [],
-    sum: "",
     newContent2: "",
     content3: [],
     newMoney2: "",
     money3: [],
-    sum2: "",
     total: "",
     result2: "",
     name: "",
     name2: ""
   },
   mounted() {
-    if (localStorage.name) {
-      this.name = localStorage.name;
+    if (storage.name) {
+      this.name = storage.name;
     }
-    if (localStorage.name2) {
-      this.name2 = localStorage.name2;
+    if (storage.name2) {
+      this.name2 = storage.name2;
     }
     //1人目
-    if (localStorage.getItem("content2")) {
+    if (storage.getItem("content2")) {
       try {
-        this.content2 = JSON.parse(localStorage.getItem("content2"));
+        this.content2 = JSON.parse(storage.getItem("content2"));
       } catch (e) {
-        localStorage.removeItem("content2");
+        storage.removeItem("content2");
       }
     }
-    if (localStorage.getItem("money2")) {
+    if (storage.getItem("money2")) {
       try {
-        this.money2 = JSON.parse(localStorage.getItem("money2"));
+        this.money2 = JSON.parse(storage.getItem("money2"));
       } catch (e) {
-        localStorage.removeItem("money2");
+        storage.removeItem("money2");
       }
     }
-    if (localStorage.sum) {
-      this.sum = localStorage.sum;
+    if (storage.sum) {
+      this.sum = storage.sum;
     }
     //2人目
-    if (localStorage.getItem("content3")) {
+    if (storage.getItem("content3")) {
       try {
-        this.content3 = JSON.parse(localStorage.getItem("content3"));
+        this.content3 = JSON.parse(storage.getItem("content3"));
       } catch (e) {
-        localStorage.removeItem("content3");
+        storage.removeItem("content3");
       }
     }
-    if (localStorage.getItem("money3")) {
+    if (storage.getItem("money3")) {
       try {
-        this.money3 = JSON.parse(localStorage.getItem("money3"));
+        this.money3 = JSON.parse(storage.getItem("money3"));
       } catch (e) {
-        localStorage.removeItem("money3");
+        storage.removeItem("money3");
       }
     }
-    if (localStorage.sum2) {
-      this.sum2 = localStorage.sum2;
+    if (storage.sum2) {
+      this.sum2 = storage.sum2;
     }
     //合計
-    if (localStorage.total) {
-      this.total = localStorage.total;
+    if (storage.total) {
+      this.total = storage.total;
     }
   },
   watch: {
     name(newName) {
-      localStorage.name = newName;
+      storage.name = newName;
     },
     name2(newName2) {
-      localStorage.name2 = newName2;
+      storage.name2 = newName2;
     },
     sum(newSum) {
-      localStorage.sum = newSum;
+      storage.sum = newSum;
     },
     sum2(newSum2) {
-      localStorage.sum2 = newSum2;
+      storage.sum2 = newSum2;
     },
     total(newTotal) {
-      localStorage.total = newTotal;
+      storage.total = newTotal;
     }
   },
   methods: {
+    toHome: function() {
+      location.href = "home.html";
+    },
     //1人目
     addContent: function() {
       if (this.newContent === "") return;
@@ -126,15 +130,15 @@ var app = new Vue({
     },
     saveContent2() {
       const parsed = JSON.stringify(this.content2);
-      localStorage.setItem("content2", parsed);
+      storage.setItem("content2", parsed);
     },
     saveMoney2() {
       const parsed = JSON.stringify(this.money2);
-      localStorage.setItem("money2", parsed);
+      storage.setItem("money2", parsed);
     },
     saveSum() {
       const parsed = JSON.stringify(this.sum);
-      localStorage.setItem("sum", parsed);
+      storage.setItem("sum", parsed);
     },
     //2人目
     addContent2: function() {
@@ -169,15 +173,15 @@ var app = new Vue({
     },
     saveContent3() {
       const parsed = JSON.stringify(this.content3);
-      localStorage.setItem("content3", parsed);
+      storage.setItem("content3", parsed);
     },
     saveMoney3() {
       const parsed = JSON.stringify(this.money3);
-      localStorage.setItem("money3", parsed);
+      storage.setItem("money3", parsed);
     },
     saveSum2() {
       const parsed = JSON.stringify(this.sum2);
-      localStorage.setItem("sum2", parsed);
+      storage.setItem("sum2", parsed);
     },
     totalMoney: function() {
       this.total = parseInt(this.sum + this.sum2);
@@ -195,6 +199,22 @@ var app = new Vue({
         this.result2 =
           this.name + "が" + this.name2 + "に" + name2Big + "円払う";
       }
+    }
+  },
+  computed: {
+    sum: function() {
+      total = 0;
+      for (x of this.money2) {
+        total += x.item2;
+      }
+      return total;
+    },
+    sum2: function() {
+      total = 0;
+      for (x of this.money3) {
+        total += x.item3;
+      }
+      return total;
     }
   }
 });
