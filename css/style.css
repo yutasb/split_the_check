@@ -11,7 +11,7 @@
 .title {
   text-align: center;
   font-size: 40px;
-  margin-top: 20px;
+  margin-top: 5px;
   width: 800px;
   margin-right: auto;
   margin-left: auto;
@@ -140,6 +140,54 @@ button {
 
 button:hover {
   opacity: 0.5;
+}
+
+.balloon5 {
+  width: 100%;
+  /* margin: 1.5em 0; */
+  margin-left: auto;
+  overflow: hidden;
+}
+
+.balloon5 .faceicon {
+  float: left;
+  margin-right: -90px;
+  width: 80px;
+}
+
+.balloon5 .faceicon img {
+  width: 100%;
+  height: 80px;
+
+  border-radius: 50%;
+}
+
+.balloon5 .chatting {
+  width: 100%;
+}
+
+.says {
+  display: inline-block;
+  position: relative;
+  margin: 5px 0 0 105px;
+  padding: 17px 13px;
+  border-radius: 12px;
+  background: #d7ebfe;
+}
+
+.says:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  left: -24px;
+  border: 12px solid transparent;
+  border-right: 12px solid #d7ebfe;
+}
+
+.says p {
+  margin: 0;
+  padding: 0;
 }
 
 /* レスポンシブ */
